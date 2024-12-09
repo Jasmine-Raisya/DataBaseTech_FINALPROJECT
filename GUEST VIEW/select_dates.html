@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Dates and Enter Guest Information</title>
+</head>
+<body>
+    <h1>Select Dates and Enter Guest Information</h1>
+    <form id="guestForm">
+        <input type="hidden" name="hotel" value="<?php echo $_POST['hotel']; ?>">
+        <input type="hidden" name="room_type" value="<?php echo $_POST['room_type']; ?>">
+        <label for="check_in">Check-in Date:</label>
+        <input type="date" id="check_in" name="check_in" required>
+        <br><br>
+        <label for="check_out">Check-out Date:</label>
+        <input type="date" id="check_out" name="check_out" required>
+        <br><br>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
+        <br><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name">
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <label for="phone_number">Phone Number:</label>
+        <input type="tel" id="phone_number" name="phone_number" required>
+        <br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+        <br><br>
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" required>
+        <br><br>
+        <button type="button" onclick="submitGuestForm()">Next</button>
+    </form>
+    <script>
+        function submitGuestForm() {
+            const guestForm = document.getElementById('guestForm');
+            const formData = new FormData(guestForm);
+            fetch('/select_payment', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = '/select_payment';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
