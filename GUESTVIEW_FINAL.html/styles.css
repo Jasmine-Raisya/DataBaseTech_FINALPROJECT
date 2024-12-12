@@ -1,3 +1,5 @@
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -5,8 +7,26 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    /*or 100vh*/
     margin: 0;
+    overflow-x: hidden;
 }
+
+/* Header styles */
+.select_hotels .header {
+    position: fixed; /* Fixed position for the header */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px; /* Set height for the header */
+    background-color: #fff; /* Background color */
+    z-index: 1000; /* Ensure it stays on top */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
 
 .container {
     max-width: 800px;
